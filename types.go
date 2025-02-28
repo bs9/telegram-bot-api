@@ -3354,6 +3354,7 @@ type MessageOrigin struct {
 	SenderUser      *User  `json:"sender_user,omitempty"`
 	SenderUserName  string `json:"sender_user_name"`
 	SenderChat      *Chat  `json:"sender_chat,omitempty"`
+	Chat            *Chat  `json:"chat"`
 	AuthorSignature string `json:"author_signature,omitempty"`
 	MessageId       int    `json:"message_id"`
 }
