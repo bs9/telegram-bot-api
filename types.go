@@ -636,6 +636,8 @@ type Message struct {
 	ReplyMarkup *InlineKeyboardMarkup `json:"reply_markup,omitempty"`
 
 	LinkPreviewOptions *LinkPreviewOptions `json:"link_preview_options,omitempty"`
+
+	ExternalReply *ExternalReplyInfo `json:"external_reply,omitempty"`
 }
 
 // Time converts the message timestamp into a Time.
@@ -3338,4 +3340,20 @@ type LinkPreviewOptions struct {
 	PreferSmallMedia bool   `json:"prefer_small_media,omitempty"`
 	PreferLargeMedia bool   `json:"prefer_large_media,omitempty"`
 	ShowAboveText    bool   `json:"show_above_text,omitempty"`
+}
+
+// ExternalReplyInfo https://core.telegram.org/bots/api#externalreplyinfo
+type ExternalReplyInfo struct {
+	Origin *MessageOrigin `json:"origin"`
+}
+
+// MessageOrigin https://core.telegram.org/bots/api#messageorigin
+type MessageOrigin struct {
+	Type            string `json:"type"`
+	Date            int    `json:"date"`
+	SenderUser      *User  `json:"sender_user,omitempty"`
+	SenderUserName  string `json:"sender_user_name"`
+	SenderChat      *Chat  `json:"sender_chat,omitempty"`
+	AuthorSignature string `json:"author_signature,omitempty"`
+	MessageId       int    `json:"message_id"`
 }
