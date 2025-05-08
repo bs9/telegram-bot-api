@@ -7,6 +7,7 @@ import (
 	"errors"
 	"fmt"
 	"io"
+	"log"
 	"mime/multipart"
 	"net/http"
 	"net/url"
@@ -624,6 +625,7 @@ func (bot *BotAPI) GetGameHighScores(config GetGameHighScoresConfig) ([]GameHigh
 // GetInviteLink get InviteLink for a chat
 func (bot *BotAPI) GetInviteLink(config ChatInviteLinkConfig) (string, error) {
 	resp, err := bot.Request(config)
+	log.Printf("update resp %v", resp)
 	if err != nil {
 		return "", err
 	}
