@@ -402,6 +402,7 @@ func (bot *BotAPI) GetFile(config FileConfig) (File, error) {
 // instantly instead of having to wait between requests.
 func (bot *BotAPI) GetUpdates(config UpdateConfig) ([]Update, error) {
 	resp, err := bot.Request(config)
+	log.Printf("update resp %v", resp)
 	if err != nil {
 		return []Update{}, err
 	}
